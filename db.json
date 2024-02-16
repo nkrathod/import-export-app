@@ -29,19 +29,9 @@
       "password": "test123",
       "usertype": "user",
       "id": 3
-    },
-    {
-      "firstName": "Nitesh",
-      "lastName": "Rathod",
-      "username": "niteshrathod",
-      "name": "Nitesh Rathod",
-      "email": "niteshrathod15205@gmail.com",
-      "password": "pass",
-      "usertype": "user",
-      "id": 4
     }
   ],
-  "importData": [{
+  "import-data": [{
     "id": 0,
     "date": "16 Mar, 2019",
     "name": "Elvis Presley",
@@ -49,7 +39,7 @@
     "paymentMethod": "VISA ⠀•••• 3719",
     "amount": 312.44
   }],
-  "exportData": [
+  "export-data": [
     {
       "id": 0,
       "date": "16 Mar, 2019",
@@ -57,6 +47,18 @@
       "shipTo": "Tupelo, MS",
       "paymentMethod": "VISA ⠀•••• 3719",
       "amount": 312.44
+    }
+  ],
+  "import-export-data": [
+    {
+      "id": 1001,
+      "date": "16 Mar, 2019",
+      "name": "Elvis Presley",
+      "shipTo": "Tupelo, MS",
+      "paymentMethod": "VISA  1234-1234-3719",
+      "amount": 312.44,
+      "createdBy" : "rutulambe",
+      "timestamp": "1708079832"
     }
   ]
 }
