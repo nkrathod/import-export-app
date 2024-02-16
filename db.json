@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Administrator",
+      "firstName": "Admin",
+      "lastName": "User",
+      "username": "admin",
+      "password": "admin@123",
+      "usertype": "admin",
+      "email": "admin@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Rutuja Lambe",
+      "firstName": "Rutuja",
+      "lastName": "Lambe",
+      "username": "rutulambe",
+      "password": "rutu@123",
+      "usertype": "user",
+      "email": "rutulambe@gmail.com"
+    },
+    {
+      "firstName": "Nitesh",
+      "lastName": "Rathod",
+      "username": "niteshrathod15205@gmail.com",
+      "name": "Nitesh Rathod",
+      "email": "niteshrathod15205@gmail.com",
+      "password": "test123",
+      "usertype": "user",
+      "id": 3
+    },
+    {
+      "firstName": "Nitesh",
+      "lastName": "Rathod",
+      "username": "niteshrathod",
+      "name": "Nitesh Rathod",
+      "email": "niteshrathod15205@gmail.com",
+      "password": "pass",
+      "usertype": "user",
+      "id": 4
+    }
+  ],
+  "importData": [{
+    "id": 0,
+    "date": "16 Mar, 2019",
+    "name": "Elvis Presley",
+    "shipTo": "Tupelo, MS",
+    "paymentMethod": "VISA ⠀•••• 3719",
+    "amount": 312.44
+  }],
+  "exportData": [
+    {
+      "id": 0,
+      "date": "16 Mar, 2019",
+      "name": "Elvis Presley",
+      "shipTo": "Tupelo, MS",
+      "paymentMethod": "VISA ⠀•••• 3719",
+      "amount": 312.44
+    }
+  ]
+}
