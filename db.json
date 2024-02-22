@@ -54,11 +54,34 @@
       "id": 1001,
       "date": "16 Mar, 2019",
       "name": "Elvis Presley",
+      "shipFrom": "Mumbai, MH, IND",
       "shipTo": "Tupelo, MS",
       "paymentMethod": "VISA  1234-1234-3719",
       "amount": 312.44,
+      "createdBy" : "elvispresley",
+      "timestamp": "1708079832"
+    },
+    {
+      "id": 1002,
+      "date": "16 Mar, 2019",
+      "name": "Rutuja Lambe",
+      "shipFrom": "Nashik, MH, IND",
+      "shipTo": "Texas, US",
+      "paymentMethod": "VISA  1234-1234-3010",
+      "amount": 510.50,
       "createdBy" : "rutulambe",
       "timestamp": "1708079832"
+    },
+    {
+      "id": 1003,
+      "date": "16 Mar, 2019",
+      "name": "Rutuja Lambe",
+      "shipFrom": "Nashik, MH, IND",
+      "shipTo": "Tupelo, MS",
+      "paymentMethod": "VISA  1234-1234-3010",
+      "amount": 780.90,
+      "createdBy" : "rutulambe",
+      "timestamp": "1708079032"
     }
   ]
 }

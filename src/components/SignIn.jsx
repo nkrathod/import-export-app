@@ -46,7 +46,7 @@ export default function SignIn() {
       username: data.get('username'),
       password: data.get('password'),
     });
-    axios.get('http://localhost:3000/users').then((response) => {
+    axios.get('http://localhost:3003/users').then((response) => {
       if (response && response.data && response.data.length > 0) {
         response.data.forEach((user) => {
           if ((user.username === userName || user.email === userName) && user.password === password) {

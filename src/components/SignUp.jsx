@@ -58,7 +58,7 @@ export default function SignUp() {
     if (userData) {
       console.log(userData);
       axios
-        .post("http://localhost:3000/users", userData)
+        .post("http://localhost:3003/users", userData)
         .then((response) => {
           console.log(response);
           if (response && response.data && response.data.username) {

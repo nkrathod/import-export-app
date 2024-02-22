@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Title from "./Title";
 import axios from "axios";
+import Button from "@mui/material/Button";
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -90,7 +91,7 @@ export default function Orders() {
   React.useEffect(() => {
     if (data.length === 0) {
       axios
-        .get("http://localhost:3000/import-data")
+        .get("http://localhost:3003/import-export-data")
         .then((res) => {
           if (res.data.length > 0) {
             console.log(res.data);
@@ -104,22 +105,26 @@ export default function Orders() {
   }, []);
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>
+        Recent Orders <Button variant="contained" style={{ float: 'right'}}>Add new</Button>
+      </Title>
       <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
+            <TableCell>Ship From</TableCell>
             <TableCell>Ship To</TableCell>
             <TableCell>Payment Method</TableCell>
             <TableCell align="right">Sale Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
+              <TableCell>{row.shipFrom}</TableCell>
               <TableCell>{row.shipTo}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
               <TableCell align="right">{`$${row.amount}`}</TableCell>

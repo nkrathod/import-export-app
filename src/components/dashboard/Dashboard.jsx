@@ -14,9 +14,8 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Link from "@mui/material/Link";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import EnhancedTable from "../EnhancedTable";
 import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
@@ -111,9 +110,8 @@ export default function Dashboard() {
                 }}
               >
                 {open && <h3>Dashboard</h3>}
-
                 <IconButton onClick={toggleDrawer}>
-                  <ChevronLeftIcon />
+                  {open ? <ArrowBackIosIcon /> : <ArrowForwardIosIcon />}
                 </IconButton>
               </Toolbar>
               <Divider />

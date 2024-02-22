@@ -11,8 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import AuthContext from "../authContext";
 import { Link } from "@mui/material";
 
@@ -52,7 +51,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <FlightTakeoffIcon
+          <AirplaneTicketIcon
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
           />
           <Typography
@@ -108,7 +107,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <FlightTakeoffIcon
+          <AirplaneTicketIcon
             sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
           />
           <Typography

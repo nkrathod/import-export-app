@@ -10,6 +10,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Orders from "./components/dashboard/Orders";
 import Profile from "./components/Profile";
 import AuthContext from "./authContext";
+import AddOrder from "./components/dashboard/AddOrders";
 
 const router = createBrowserRouter([
   {
@@ -38,8 +39,14 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "dashboard/orders",
+        path: "/dashboard/orders",
         element: <Orders />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/dashboard/add",
+        element: <AddOrder />,
+        errorElement: <ErrorPage />,
       },
     ],
   },

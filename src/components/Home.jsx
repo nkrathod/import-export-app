@@ -18,7 +18,6 @@ import { Divider } from "@mui/material";
 
 export default function Home() {
   const { authenticated, userDetails } = useContext(AuthContext);
-  const arr = [{ test: "test" }];
   const cardArray = [
     {
       id: 1,
