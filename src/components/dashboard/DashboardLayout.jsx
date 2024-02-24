@@ -12,7 +12,7 @@ import Container from "@mui/material/Container";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import EnhancedTable from "../EnhancedTable";
-import { mainListItems, secondaryListItems } from "./listItems";
+import { MainListItems, secondaryListItems } from "./listItems";
 import Button from "@mui/material/Button";
 import AuthContext from "../../authContext";
 import Title from "./Title";
@@ -92,7 +92,7 @@ export default function DashboardLayout() {
               </Toolbar>
               <Divider />
               <List component="nav">
-                {mainListItems}
+                <MainListItems />
                 <Divider sx={{ my: 1 }} />
                 {secondaryListItems}
               </List>

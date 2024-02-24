@@ -42,7 +42,7 @@ export default function Home() {
     },
   ];
 
-  return ( 
+  return (
     <div>
       <div
         id="carouselExampleControls"
@@ -102,11 +102,12 @@ export default function Home() {
         <p>Check your Import and Export records in Dashboard Page</p>
       </div>
       <div style={{ padding: "20px 100px" }}>
-        
         <Grid container spacing={3}>
-          <Grid item xs={12} >
-          <Typography gutterBottom variant="h5" component="div">Our Services</Typography>
-        <Divider />
+          <Grid item xs={12}>
+            <Typography gutterBottom variant="h5" component="div">
+              Our Services
+            </Typography>
+            <Divider />
           </Grid>
           {cardArray.map((item) => (
             <Grid item xs={12} md={4}>

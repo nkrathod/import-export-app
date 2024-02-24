@@ -10,52 +10,59 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import FlightLandIcon from "@mui/icons-material/FlightLand";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import { useNavigate } from "react-router-dom";
 
-export const mainListItems = (
-  <React.Fragment>
-    <ListItemButton to="/dashboard">
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItemButton>
+export const MainListItems = () => {
+  const navigate = useNavigate();
+  const handleNavigate = (url) => {
+    navigate(url);
+  };
+  return (
+    <React.Fragment>
+      <ListItemButton onClick={() => handleNavigate("/dashboard")}>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItemButton>
 
-    <ListItemButton to="/dashboard/orders">
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItemButton>
+      <ListItemButton onClick={() => handleNavigate("/dashboard/orders")}>
+        <ListItemIcon>
+          <ShoppingCartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Orders" />
+      </ListItemButton>
 
-    <ListItemButton to="/dashboard/import">
-      <ListItemIcon>
-        <FlightLandIcon />
-      </ListItemIcon>
-      <ListItemText primary="Import" />
-    </ListItemButton>
+      <ListItemButton onClick={() => handleNavigate("/dashboard/import")}>
+        <ListItemIcon>
+          <FlightLandIcon />
+        </ListItemIcon>
+        <ListItemText primary="Import" />
+      </ListItemButton>
 
-    <ListItemButton disabled to="/dashboard/export">
-      <ListItemIcon>
-        <FlightTakeoffIcon />
-      </ListItemIcon>
-      <ListItemText primary="Export" />
-    </ListItemButton>
+      <ListItemButton onClick={() => handleNavigate("/dashboard/export")}>
+        <ListItemIcon>
+          <FlightTakeoffIcon />
+        </ListItemIcon>
+        <ListItemText primary="Export" />
+      </ListItemButton>
 
-    <ListItemButton disabled to="/dashboard/customers">
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItemButton>
+      <ListItemButton disabled to="/dashboard/customers">
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Customers" />
+      </ListItemButton>
 
-    <ListItemButton disabled>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItemButton>
-  </React.Fragment>
-);
+      <ListItemButton disabled>
+        <ListItemIcon>
+          <BarChartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Reports" />
+      </ListItemButton>
+    </React.Fragment>
+  );
+};
 
 export const secondaryListItems = (
   <React.Fragment>

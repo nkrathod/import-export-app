@@ -16,6 +16,8 @@ const DashboardLayout = lazy(() =>
   import("./components/dashboard/DashboardLayout")
 );
 const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
+const ImportOrders = lazy(() => import("./components/dashboard/ImportOrders"));
+const ExportOrders = lazy(() => import("./components/dashboard/ExportOrders"));
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,24 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<CustomLoader />}>
             <Orders />
+          </Suspense>
+        ),
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/dashboard/import",
+        element: (
+          <Suspense fallback={<CustomLoader />}>
+            <ImportOrders />
+          </Suspense>
+        ),
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/dashboard/export",
+        element: (
+          <Suspense fallback={<CustomLoader />}>
+            <ExportOrders />
           </Suspense>
         ),
         errorElement: <ErrorPage />,

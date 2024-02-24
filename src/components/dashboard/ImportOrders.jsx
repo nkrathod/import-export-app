@@ -15,7 +15,7 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Orders() {
+export default function ImportOrders() {
   const [data, setData] = React.useState([]);
   const navigate = useNavigate();
 
@@ -54,7 +54,8 @@ export default function Orders() {
         .then((res) => {
           if (res.data.length > 0) {
             console.log(res.data);
-            setData(res.data);
+            const importedOrd = res.data.filter((order) => order.orderType === "Import")
+            setData(importedOrd);
           }
         })
         .catch((error) => {
@@ -66,13 +67,13 @@ export default function Orders() {
   return (
     <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
       <Title>
-        Recent Orders{" "}
+        Imported Orders{" "}
         <Button
           variant="contained"
           style={{ float: "right" }}
           onClick={handleAdd}
         >
-          Add new
+          Add new Import Order
         </Button>
       </Title>
       <Table size="small">
@@ -82,7 +83,6 @@ export default function Orders() {
             <TableCell>Name</TableCell>
             <TableCell>Ship From</TableCell>
             <TableCell>Ship To</TableCell>
-            <TableCell>Order Type</TableCell>
             <TableCell>Payment Method</TableCell>
             <TableCell align="right">Sale Amount</TableCell>
           </TableRow>
@@ -94,7 +94,6 @@ export default function Orders() {
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.shipFrom}</TableCell>
               <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.orderType}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
               <TableCell align="right">{`$${row.amount}`}</TableCell>
             </TableRow>
