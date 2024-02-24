@@ -99,7 +99,7 @@ export default function Home() {
           Hi {userDetails && userDetails.name}, Welcome to Import Export Portals
         </h1>
 
-        <p>Check your Emport and Export records in Dashboard Page</p>
+        <p>Check your Import and Export records in Dashboard Page</p>
       </div>
       <div style={{ padding: "20px 100px" }}>
         

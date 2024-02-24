@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import "./App.css";
 import ResponsiveAppBar from "./components/AppBar";
 import ErrorPage from "./components/ErrorPage";
@@ -6,11 +6,16 @@ import Home from "./components/Home";
 import SignIn from "./components/SignIn";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignUp from "./components/SignUp";
-import Dashboard from "./components/dashboard/Dashboard";
 import Orders from "./components/dashboard/Orders";
 import Profile from "./components/Profile";
 import AuthContext from "./authContext";
 import AddOrder from "./components/dashboard/AddOrders";
+import StickyFooter from "./components/StickyFooter";
+import CustomLoader from "./components/skeleton/CustomLoader";
+const DashboardLayout = lazy(() =>
+  import("./components/dashboard/DashboardLayout")
+);
+const Dashboard = lazy(() => import("./components/dashboard/Dashboard"));
 
 const router = createBrowserRouter([
   {
@@ -35,12 +40,21 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <DashboardLayout />,
     errorElement: <ErrorPage />,
     children: [
       {
+        index: true,
+        element: <Dashboard />,
+        errorElement: <ErrorPage />,
+      },
+      {
         path: "/dashboard/orders",
-        element: <Orders />,
+        element: (
+          <Suspense fallback={<CustomLoader />}>
+            <Orders />
+          </Suspense>
+        ),
         errorElement: <ErrorPage />,
       },
       {
@@ -63,6 +77,7 @@ function App() {
       setAuthenticated(true);
     }
   }, []);
+
   return (
     <div>
       <AuthContext.Provider
@@ -70,6 +85,7 @@ function App() {
       >
         <ResponsiveAppBar />
         <RouterProvider router={router} />
+        <StickyFooter />
       </AuthContext.Provider>
     </div>
   );
