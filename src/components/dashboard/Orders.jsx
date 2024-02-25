@@ -38,7 +38,6 @@ export default function Orders() {
         .get("http://localhost:3003/import-export-data")
         .then((res) => {
           if (res.data.length > 0) {
-            console.log(res.data);
             setData(res.data);
           }
         })
