@@ -11,10 +11,6 @@ export const dateFormaters = (dates) => {
   // ✅ Get timestamp in Milliseconds
   const timestamp = date.getTime();
 
-  // ✅ If you need to convert milliseconds to seconds
-  // divide by 1000
-  const unixTimestamp = Math.floor(date.getTime() / 1000);
-
   const todaysDate = new Intl.DateTimeFormat("en-IN", {
     year: "numeric",
     month: "long",

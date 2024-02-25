@@ -17,34 +17,19 @@ function preventDefault(event) {
 
 export default function Orders() {
   const [data, setData] = React.useState([]);
+  const [row, setRow] = React.useState(5);
   const navigate = useNavigate();
-
-  const str = "2022-04-26";
-
-  const date = new Date(str);
-
-  // ✅ Get timestamp in Milliseconds
-  const timestamp = date.getTime();
-  console.log(timestamp); // 👉️ 1650931200000
-
-  // ✅ If you need to convert milliseconds to seconds
-  // divide by 1000
-  const unixTimestamp = Math.floor(date.getTime() / 1000);
-  console.log(unixTimestamp); // 👉️ 1650931200
-
-  console.log(
-    new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    }).format(timestamp)
-  );
 
   const handleAdd = () => {
     navigate("/dashboard/add");
+  };
+
+  const showMore = () => {
+    setRow(data.length);
+  };
+
+  const showLess = () => {
+    setRow(5);
   };
 
   React.useEffect(() => {
@@ -88,7 +73,7 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
+          {data.slice(0, row).map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
@@ -101,9 +86,15 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-        See more orders
-      </Link>
+      {row === 5 ? (
+        <Link color="primary" href="#" onClick={showMore} sx={{ mt: 3 }}>
+          See more orders
+        </Link>
+      ) : (
+        <Link color="primary" href="#" onClick={showLess} sx={{ mt: 3 }}>
+          See less orders
+        </Link>
+      )}
     </Paper>
   );
 }

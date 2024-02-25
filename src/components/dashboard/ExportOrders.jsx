@@ -20,10 +20,19 @@ function preventDefault(event) {
 export default function ExportOrders() {
   const [data, setData] = React.useState([]);
   const [deposit, setDeposit] = React.useState(0);
+  const [row, setRow] = React.useState(5);
   const navigate = useNavigate();
 
   const handleAdd = () => {
     navigate("/dashboard/add");
+  };
+
+  const showMore = () => {
+    setRow(data.length);
+  };
+
+  const showLess = () => {
+    setRow(5);
   };
 
   React.useEffect(() => {
@@ -86,7 +95,7 @@ export default function ExportOrders() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map((row) => (
+              {data.slice(0, row).map((row) => (
                 <TableRow key={row.id}>
                   <TableCell>{row.date}</TableCell>
                   <TableCell>{row.name}</TableCell>
@@ -98,14 +107,15 @@ export default function ExportOrders() {
               ))}
             </TableBody>
           </Table>
-          <Link
-            color="primary"
-            href="#"
-            onClick={preventDefault}
-            sx={{ mt: 3 }}
-          >
-            See more orders
-          </Link>
+          {row === 5 ? (
+            <Link color="primary" href="#" onClick={showMore} sx={{ mt: 3 }}>
+              See more orders
+            </Link>
+          ) : (
+            <Link color="primary" href="#" onClick={showLess} sx={{ mt: 3 }}>
+              See less orders
+            </Link>
+          )}
         </Paper>
       </Grid>
     </Grid>
