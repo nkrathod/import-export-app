@@ -17,7 +17,7 @@ import "../App.css";
 import { Divider } from "@mui/material";
 
 export default function Home() {
-  const { authenticated, userDetails } = useContext(AuthContext);
+  const { userDetails } = useContext(AuthContext);
   const cardArray = [
     {
       id: 1,

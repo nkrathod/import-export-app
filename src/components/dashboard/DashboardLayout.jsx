@@ -1,22 +1,20 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiDrawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import EnhancedTable from "../EnhancedTable";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { MainListItems, secondaryListItems } from "./listItems";
 import Button from "@mui/material/Button";
 import AuthContext from "../../authContext";
 import Title from "./Title";
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -59,7 +57,7 @@ export default function DashboardLayout() {
   return (
     <>
       {!authenticated ? (
-        <div style={{ padding: "50px", height: '77vh' }}>
+        <div style={{ padding: "50px", height: "77vh" }}>
           <Title>
             Please login : click login button to redirect signin page
           </Title>
