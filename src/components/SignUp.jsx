@@ -37,7 +37,6 @@ export default function SignUp() {
     };
 
     if (userData) {
-      console.log(userData);
       axios
         .post("http://localhost:3003/users", userData)
         .then((response) => {

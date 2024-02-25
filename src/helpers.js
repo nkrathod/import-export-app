@@ -35,3 +35,8 @@ export const todaysDate = () => {
 
   return todaysDate;
 };
+
+export const creditCardFormatter = (value) => {
+  const newValue = "VISA " + value.match(new RegExp('.{1,4}', 'g')).join("-");
+  return newValue
+ }

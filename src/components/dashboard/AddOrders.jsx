@@ -15,12 +15,13 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import axios from "axios";
+import { creditCardFormatter } from "../../helpers";
 
 const AddOrder = () => {
   const date = new Date();
-  const { authenticated, setAuthenticated, userDetails, setUserDeatils } =
-    useContext(AuthContext);
+  const { userDetails } = useContext(AuthContext);
   const [value, setValue] = React.useState(dayjs(date));
+
   const [formData, setFormData] = useState({
     date: dayjs(date),
     name: "",
@@ -28,30 +29,64 @@ const AddOrder = () => {
     shipTo: "",
     paymentMethod: "",
     amount: "",
-    createdBy: "rutulambe",
-    timestamp: "1708079032",
+    createdBy: "",
+    timestamp: "",
     orderType: "",
   });
   const handleSubmit = (event) => {
+    event.preventDefault();
     const data = new FormData(event.currentTarget);
     const timestamp = date.getTime();
-    setFormData((prevState) => ({
-      ...prevState,
-      date: data.get("date"),
-      paymentMethod: `VISA ${formData.paymentMethod}`,
+
+    const orderData = {
+      date: dayjs(data.get("date")).format("ll"),
+      name: data.get("name"),
+      shipFrom: data.get("shipFrom"),
+      shipTo: data.get("shipTo"),
+      paymentMethod: creditCardFormatter(data.get("paymentMethod")),
+      amount: data.get("amount"),
       createdBy: userDetails.username,
       timestamp: timestamp,
-    }));
+      orderType: data.get("orderType"),
+    };
 
-    console.log("testSubmit ", formData);
+    if (
+      formData &&
+      formData.name &&
+      formData.shipFrom &&
+      formData.shipTo &&
+      formData.paymentMethod &&
+      formData.amount &&
+      formData.orderType
+    ) {
+      axios
+        .post("http://localhost:3003/import-export-data", orderData)
+        .then((res) => {
+          console.log("Success : ", res);
+          setFormData((prev) => ({
+            ...prev,
+            date: "",
+            name: "",
+            shipFrom: "",
+            shipTo: "",
+            paymentMethod: "",
+            amount: "",
+            createdBy: "",
+            timestamp: "",
+            orderType: "",
+          }));
+          alert("Success");
+        })
+        .catch((error) => {
+          console.log("Error : ", error);
+        });
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };
-
-  console.log("formData", userDetails);
 
   return (
     <Paper sx={{ p: 4, display: "flex", flexDirection: "column" }}>
@@ -84,8 +119,10 @@ const AddOrder = () => {
                   id="name"
                   label="Name"
                   name="name"
+                  value={formData.name}
                   autoComplete="name"
                   autoFocus
+                  onChange={(e) => handleChange(e)}
                 />
                 <TextField
                   margin="normal"
@@ -94,8 +131,10 @@ const AddOrder = () => {
                   id="shipFrom"
                   label="Ship From"
                   name="shipFrom"
+                  value={formData.shipFrom}
                   autoComplete="shipFrom"
                   autoFocus
+                  onChange={(e) => handleChange(e)}
                 />
                 <TextField
                   margin="normal"
@@ -104,8 +143,10 @@ const AddOrder = () => {
                   id="shipTo"
                   label="Ship To"
                   name="shipTo"
+                  value={formData.shipTo}
                   autoComplete="shipTo"
                   autoFocus
+                  onChange={(e) => handleChange(e)}
                 />
               </Grid>
               <Grid item xs={12} md={5}>
@@ -116,9 +157,11 @@ const AddOrder = () => {
                   id="paymentMethod"
                   label="Payment Method"
                   name="paymentMethod"
+                  value={formData.paymentMethod}
                   placeholder="Enter card Number"
                   autoComplete="spaymentMethodhipTo"
                   autoFocus
+                  onChange={(e) => handleChange(e)}
                 />
                 <TextField
                   margin="normal"
@@ -127,9 +170,11 @@ const AddOrder = () => {
                   id="amount"
                   label="Cost"
                   name="amount"
+                  value={formData.amount}
                   placeholder="Enter Total Cost"
                   autoComplete="amount"
                   autoFocus
+                  onChange={(e) => handleChange(e)}
                 />
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">

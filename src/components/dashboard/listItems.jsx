@@ -10,6 +10,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import FlightLandIcon from "@mui/icons-material/FlightLand";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useNavigate } from "react-router-dom";
 
 export const MainListItems = () => {
@@ -24,6 +25,13 @@ export const MainListItems = () => {
           <DashboardIcon />
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
+      </ListItemButton>
+
+      <ListItemButton onClick={() => handleNavigate("/dashboard/add")}>
+        <ListItemIcon>
+          <AddShoppingCartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Add New" />
       </ListItemButton>
 
       <ListItemButton onClick={() => handleNavigate("/dashboard/orders")}>
