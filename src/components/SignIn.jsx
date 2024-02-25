@@ -28,10 +28,7 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     const userName = data.get('username');
     const password = data.get('password');
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    });
+    
     axios.get('http://localhost:3003/users').then((response) => {
       if (response && response.data && response.data.length > 0) {
         response.data.forEach((user) => {
