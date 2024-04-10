@@ -38,6 +38,9 @@ export default function SignIn() {
             setAuthenticated(true);
             navigate('/dashboard');
           }
+          else {
+            alert("Authentication failed")
+          }
         });
       } 
     }).catch((error) => {
