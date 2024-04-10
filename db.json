@@ -79,20 +79,6 @@
       "createdBy": "rutulambe",
       "timestamp": "1708079832",
       "orderType": "Export"
-    },
-    {
-      "date": "Apr 11, 2024",
-      "name": "Nitesh Rathod",
-      "shipFrom": "hhj",
-      "shipTo": "dd",
-      "paymentMethod": "VISA 8999-9000-0",
-      "item": "quantity",
-      "quantity": "4kg",
-      "amount": "500",
-      "createdBy": "rutulambe",
-      "timestamp": 1712777065913,
-      "orderType": "Import",
-      "id": 1003
     }
   ]
 }
