@@ -88,6 +88,8 @@ export default function ImportOrders() {
               <TableRow>
                 <TableCell>Date</TableCell>
                 <TableCell>Name</TableCell>
+                <TableCell>Product</TableCell>
+                <TableCell>Quantity</TableCell>
                 <TableCell>Ship From</TableCell>
                 <TableCell>Ship To</TableCell>
                 <TableCell>Payment Method</TableCell>
@@ -99,6 +101,8 @@ export default function ImportOrders() {
                 <TableRow key={row.id}>
                   <TableCell>{row.date}</TableCell>
                   <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.item}</TableCell>
+                  <TableCell>{row.quantity}</TableCell>
                   <TableCell>{row.shipFrom}</TableCell>
                   <TableCell>{row.shipTo}</TableCell>
                   <TableCell>{row.paymentMethod}</TableCell>

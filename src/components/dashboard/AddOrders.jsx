@@ -29,6 +29,8 @@ const AddOrder = () => {
     shipTo: "",
     paymentMethod: "",
     amount: "",
+    item: "",
+    quantity: "",
     createdBy: "",
     timestamp: "",
     orderType: "",
@@ -44,6 +46,8 @@ const AddOrder = () => {
       shipFrom: data.get("shipFrom"),
       shipTo: data.get("shipTo"),
       paymentMethod: creditCardFormatter(data.get("paymentMethod")),
+      item: data.get("item"),
+      quantity: data.get("quantity"),
       amount: data.get("amount"),
       createdBy: userDetails.username,
       timestamp: timestamp,
@@ -56,6 +60,8 @@ const AddOrder = () => {
       formData.shipFrom &&
       formData.shipTo &&
       formData.paymentMethod &&
+      formData.item &&
+      formData.quantity &&
       formData.amount &&
       formData.orderType
     ) {
@@ -71,6 +77,8 @@ const AddOrder = () => {
             shipTo: "",
             paymentMethod: "",
             amount: "",
+            item: "",
+            quantity: "",
             createdBy: "",
             timestamp: "",
             orderType: "",
@@ -148,18 +156,31 @@ const AddOrder = () => {
                   autoFocus
                   onChange={(e) => handleChange(e)}
                 />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="item"
+                  label="Product"
+                  name="item"
+                  value={formData.item}
+                  placeholder="Enter Total Cost"
+                  autoComplete="item"
+                  autoFocus
+                  onChange={(e) => handleChange(e)}
+                />
               </Grid>
               <Grid item xs={12} md={5}>
                 <TextField
                   margin="normal"
                   required
                   fullWidth
-                  id="paymentMethod"
-                  label="Payment Method"
-                  name="paymentMethod"
-                  value={formData.paymentMethod}
-                  placeholder="Enter card Number"
-                  autoComplete="spaymentMethodhipTo"
+                  id="quantity"
+                  label="Quantity"
+                  name="quantity"
+                  value={formData.quantity}
+                  placeholder="Enter Total quantity"
+                  autoComplete="quantity"
                   autoFocus
                   onChange={(e) => handleChange(e)}
                 />
@@ -173,6 +194,19 @@ const AddOrder = () => {
                   value={formData.amount}
                   placeholder="Enter Total Cost"
                   autoComplete="amount"
+                  autoFocus
+                  onChange={(e) => handleChange(e)}
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="paymentMethod"
+                  label="Payment Method"
+                  name="paymentMethod"
+                  value={formData.paymentMethod}
+                  placeholder="Enter card Number"
+                  autoComplete="spaymentMethodhipTo"
                   autoFocus
                   onChange={(e) => handleChange(e)}
                 />
