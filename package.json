@@ -1,5 +1,6 @@
 {
   "name": "import-export-app",
+  "homepage": "https://nkrathod.github.io/import-export-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
